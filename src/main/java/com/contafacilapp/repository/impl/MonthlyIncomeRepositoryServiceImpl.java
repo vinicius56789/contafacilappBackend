@@ -2,6 +2,7 @@ package com.contafacilapp.repository.impl;
 
 import com.contafacilapp.model.MonthlyIncome;
 import com.contafacilapp.repository.MonthlyIncomeRepositoryService;
+import com.contafacilapp.util.ConstantsIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +42,7 @@ public class MonthlyIncomeRepositoryServiceImpl implements MonthlyIncomeReposito
 
         return entityManager.createQuery(query, MonthlyIncome.class)
                 .setParameter("client", monthlyIncome.getClient())
-                .setMaxResults(1)
+                .setMaxResults(ConstantsIntegerUtils.ONE)
                 .getSingleResult();
     }
 
@@ -52,10 +53,10 @@ public class MonthlyIncomeRepositoryServiceImpl implements MonthlyIncomeReposito
 
             entityManager.persist(monthlyIncome);
 
-            return 1;
+            return ConstantsIntegerUtils.ONE;
 
         } catch (Exception e) {
-            return 0;
+            return ConstantsIntegerUtils.ZERO;
         }
     }
 

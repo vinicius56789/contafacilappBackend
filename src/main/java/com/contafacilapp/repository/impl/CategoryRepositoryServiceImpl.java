@@ -2,6 +2,7 @@ package com.contafacilapp.repository.impl;
 
 import com.contafacilapp.model.Category;
 import com.contafacilapp.repository.CategoryRepositoryService;
+import com.contafacilapp.util.ConstantsIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -44,10 +45,10 @@ public class CategoryRepositoryServiceImpl implements CategoryRepositoryService 
 
             entityManager.persist(category);
 
-            return 1;
+            return ConstantsIntegerUtils.ONE;
 
         } catch (Exception e) {
-            return 0;
+            return ConstantsIntegerUtils.ZERO;
         }
     }
 

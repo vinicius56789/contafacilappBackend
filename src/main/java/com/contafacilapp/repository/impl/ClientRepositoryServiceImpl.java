@@ -2,6 +2,8 @@ package com.contafacilapp.repository.impl;
 
 import com.contafacilapp.model.Client;
 import com.contafacilapp.repository.ClientRepositoryService;
+import com.contafacilapp.util.ConstantsIntegerUtils;
+import com.contafacilapp.util.ConstantsStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -31,7 +33,7 @@ public class ClientRepositoryServiceImpl implements ClientRepositoryService {
 
         } catch (NoResultException e) {
             Client error = new Client();
-            error.setName("Email e/ou senha incorretos.");
+            error.setName(ConstantsStringUtils.WRONGCLIENT);
             return error;
         }
 
@@ -46,10 +48,10 @@ public class ClientRepositoryServiceImpl implements ClientRepositoryService {
 
             entityManager.persist(client);
 
-            return 1;
+            return ConstantsIntegerUtils.ONE;
 
         } catch (Exception e) {
-            return 0;
+            return ConstantsIntegerUtils.ZERO;
         }
     }
 

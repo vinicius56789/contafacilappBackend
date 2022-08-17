@@ -2,6 +2,7 @@ package com.contafacilapp.repository.impl;
 
 import com.contafacilapp.model.Debt;
 import com.contafacilapp.repository.DebtRepositoryService;
+import com.contafacilapp.util.ConstantsIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -45,10 +46,10 @@ public class DebtRepositoryServiceImpl implements DebtRepositoryService {
 
             entityManager.persist(debt);
 
-            return 1;
+            return ConstantsIntegerUtils.ONE;
 
         } catch (Exception e) {
-            return 0;
+            return ConstantsIntegerUtils.ZERO;
         }
 
     }

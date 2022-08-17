@@ -2,6 +2,7 @@ package com.contafacilapp.repository.impl;
 
 import com.contafacilapp.model.ExtraIncome;
 import com.contafacilapp.repository.ExtraIncomeRepositoryService;
+import com.contafacilapp.util.ConstantsIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -56,10 +57,10 @@ public class ExtraIncomeRepositoryServiceImpl implements ExtraIncomeRepositorySe
 
             entityManager.persist(extraIncome);
 
-            return 1;
+            return ConstantsIntegerUtils.ONE;
 
         } catch (Exception e) {
-            return 0;
+            return ConstantsIntegerUtils.ZERO;
         }
     }
 

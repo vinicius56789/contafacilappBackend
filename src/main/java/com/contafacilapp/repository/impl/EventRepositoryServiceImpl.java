@@ -3,6 +3,7 @@ package com.contafacilapp.repository.impl;
 import com.contafacilapp.model.Bill;
 import com.contafacilapp.model.Event;
 import com.contafacilapp.repository.EventRepositoryService;
+import com.contafacilapp.util.ConstantsIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,10 +53,10 @@ public class EventRepositoryServiceImpl implements EventRepositoryService {
 
             entityManager.persist(event);
 
-            return 1;
+            return ConstantsIntegerUtils.ONE;
 
         } catch (Exception e) {
-            return 0;
+            return ConstantsIntegerUtils.ZERO;
         }
     }
 

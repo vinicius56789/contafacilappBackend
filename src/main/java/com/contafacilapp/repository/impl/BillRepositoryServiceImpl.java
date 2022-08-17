@@ -2,6 +2,7 @@ package com.contafacilapp.repository.impl;
 
 import com.contafacilapp.model.Bill;
 import com.contafacilapp.repository.BillRepositoryService;
+import com.contafacilapp.util.ConstantsIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -83,10 +84,10 @@ public class BillRepositoryServiceImpl implements BillRepositoryService {
 
             entityManager.persist(bill);
 
-            return 1;
+            return ConstantsIntegerUtils.ONE;
 
         } catch (Exception e) {
-            return 0;
+            return ConstantsIntegerUtils.ZERO;
         }
     }
 }
