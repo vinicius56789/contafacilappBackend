@@ -15,8 +15,8 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryRepositoryService gateway;
 
     @Override
-    public List<Category> selectAllCategory(Category category) {
-        return gateway.selectAllCategory(category);
+    public List<Category> selectAllCategory() {
+        return gateway.selectAllCategory();
     }
 
     @Override

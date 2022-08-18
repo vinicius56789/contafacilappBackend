@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CategoryService {
 
-    List<Category> selectAllCategory(Category category);
+    List<Category> selectAllCategory();
 
     Category selectCategory(Category category);
 

@@ -18,7 +18,7 @@ public class CategoryRepositoryServiceImpl implements CategoryRepositoryService 
     private EntityManager entityManager;
 
     @Override
-    public List<Category> selectAllCategory(Category category) {
+    public List<Category> selectAllCategory() {
 
         String query = "select c from category c";
 
