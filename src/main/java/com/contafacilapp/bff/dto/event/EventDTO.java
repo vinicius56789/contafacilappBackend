@@ -1,5 +1,6 @@
 package com.contafacilapp.bff.dto.event;
 
+import com.contafacilapp.bff.dto.bill.BillDTO;
 import com.contafacilapp.model.Bill;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
@@ -23,6 +24,6 @@ public class EventDTO {
     private String description;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Set<Bill> bills;
+    private Set<BillDTO> bills;
 
 }

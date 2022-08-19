@@ -40,11 +40,12 @@ public class ExtraIncomeRepositoryServiceImpl implements ExtraIncomeRepositorySe
     @Override
     public List<ExtraIncome> selectAllExtraIncomeOfThisMonth(ExtraIncome extraIncome) {
 
-        String query = "select e from extraIncome e where e.month = :month and e.year = :year";
+        String query = "select e from extraIncome e where e.month = :month and e.year = :year where e.client = :client";
 
         return entityManager.createQuery(query, ExtraIncome.class)
                 .setParameter("month", extraIncome.getMonth())
                 .setParameter("year", extraIncome.getYear())
+                .setParameter("client", extraIncome.getClient())
                 .getResultList();
     }
 
