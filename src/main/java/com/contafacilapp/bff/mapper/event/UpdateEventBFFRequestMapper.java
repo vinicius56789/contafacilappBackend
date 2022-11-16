@@ -11,6 +11,7 @@ public class UpdateEventBFFRequestMapper {
 
         requestBS.setName(eventDTO.getName());
         requestBS.setDescription(eventDTO.getDescription());
+        requestBS.setId(Long.valueOf(eventDTO.getEventId()));
 
     }
 
