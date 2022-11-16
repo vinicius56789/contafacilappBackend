@@ -1,5 +1,6 @@
 package com.contafacilapp.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,7 @@ public class Client {
     private String name;
 
     @Column(unique=true)
+    @NotNull
     private String email;
 
     private String age;

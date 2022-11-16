@@ -12,7 +12,8 @@ public class InsertClientBFFRequestMapper {
         requestBS.setName(clientDTO.getName());
         requestBS.setAge(clientDTO.getAge());
         requestBS.setOccupation(clientDTO.getOccupation());
-        requestBS.setOccupation(clientDTO.getOccupation());
+        requestBS.setEmail(clientDTO.getEmail());
+        requestBS.setPassword(clientDTO.getPassword());
     }
 
     public Client toBusinessDTO() {
