@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity(name = "event")
 public class Event {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

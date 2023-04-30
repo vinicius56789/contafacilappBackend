@@ -28,6 +28,7 @@ public class SelectAllBillsBFFResponseMapper {
             item.setTitle(bill.getTitle());
             item.setValue(bill.getValue());
             item.setYear(bill.getYear());
+            item.setBillId(String.valueOf(bill.getId()));
             content.add(item);
 
         }

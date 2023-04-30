@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity(name = "monthlyIncome")
 public class MonthlyIncome {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String salary;

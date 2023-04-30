@@ -42,7 +42,7 @@ public class BillRepositoryServiceImpl implements BillRepositoryService {
     @Transactional
     public int updateBill(Bill bill) {
 
-        String query = "update bill b set b.value = :value, b.dueDate = :dueDate, b.reminder = :reminder, b.description = :description" +
+        String query = "update bill b set b.value = :value, b.dueDate = :dueDate, b.reminder = :reminder, b.description = :description," +
                 "b.title = :title, b.month = :month, b.year = :year, b.constant = :constant, b.paid = :paid, b.paidMonth = :paidMonth, b.category = :category" +
                 " where b.id = :id";
 

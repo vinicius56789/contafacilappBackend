@@ -5,9 +5,11 @@ import com.contafacilapp.model.Event;
 import com.contafacilapp.repository.EventRepositoryService;
 import com.contafacilapp.util.ConstantsIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -47,6 +49,8 @@ public class EventRepositoryServiceImpl implements EventRepositoryService {
     }
 
     @Override
+    @Modifying
+    @Transactional
     public int insertEvent(Event event) {
 
         try {
@@ -61,6 +65,8 @@ public class EventRepositoryServiceImpl implements EventRepositoryService {
     }
 
     @Override
+    @Modifying
+    @Transactional
     public int updateEvent(Event event) {
 
         String query = "update event e set e.name = :name, e.description = :description where e.id = :id";
@@ -73,6 +79,8 @@ public class EventRepositoryServiceImpl implements EventRepositoryService {
     }
 
     @Override
+    @Modifying
+    @Transactional
     public int deleteEvent(Event event) {
 
         String query = "delete from event where id = :id";

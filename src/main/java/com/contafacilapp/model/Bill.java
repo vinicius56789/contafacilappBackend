@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity(name = "bill")
 public class Bill {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;

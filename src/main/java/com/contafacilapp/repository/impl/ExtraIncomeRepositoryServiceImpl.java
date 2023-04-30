@@ -70,7 +70,7 @@ public class ExtraIncomeRepositoryServiceImpl implements ExtraIncomeRepositorySe
     @Transactional
     public int updateExtraIncome(ExtraIncome extraIncome) {
 
-        String query = "update extraIncome e set e.name = :name, e.description = :description, e.value where e.id = :id";
+        String query = "update extraIncome e set e.name = :name, e.description = :description, e.value = :value where e.id = :id";
 
         return entityManager.createQuery(query)
                 .setParameter("name", extraIncome.getName())

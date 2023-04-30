@@ -4,9 +4,11 @@ import com.contafacilapp.model.MonthlyIncome;
 import com.contafacilapp.repository.MonthlyIncomeRepositoryService;
 import com.contafacilapp.util.ConstantsIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -18,7 +20,7 @@ public class MonthlyIncomeRepositoryServiceImpl implements MonthlyIncomeReposito
     @Override
     public List<MonthlyIncome> selectAllMonthlyIncome(MonthlyIncome monthlyIncome) {
 
-        String query = "select m from monthlyIncome where m.client = :client";
+        String query = "select m from monthlyIncome m where m.client = :client";
 
         return entityManager.createQuery(query, MonthlyIncome.class)
                 .setParameter("client", monthlyIncome.getClient())
@@ -28,7 +30,7 @@ public class MonthlyIncomeRepositoryServiceImpl implements MonthlyIncomeReposito
     @Override
     public MonthlyIncome selectMonthlyIncome(MonthlyIncome monthlyIncome) {
 
-        String query = "select m from monthlyIncome where m.id = :id";
+        String query = "select m from monthlyIncome m where m.id = :id";
 
         return entityManager.createQuery(query, MonthlyIncome.class)
                 .setParameter("id", monthlyIncome.getId())
@@ -38,7 +40,7 @@ public class MonthlyIncomeRepositoryServiceImpl implements MonthlyIncomeReposito
     @Override
     public MonthlyIncome selectCurrentMonthlyIncome(MonthlyIncome monthlyIncome) {
 
-        String query = "select m from monthlyIncome where m.client = :client";
+        String query = "select m from monthlyIncome m where m.client = :client";
 
         return entityManager.createQuery(query, MonthlyIncome.class)
                 .setParameter("client", monthlyIncome.getClient())
@@ -47,6 +49,8 @@ public class MonthlyIncomeRepositoryServiceImpl implements MonthlyIncomeReposito
     }
 
     @Override
+    @Modifying
+    @Transactional
     public int insertMonthlyIncome(MonthlyIncome monthlyIncome) {
 
         try {
@@ -61,6 +65,8 @@ public class MonthlyIncomeRepositoryServiceImpl implements MonthlyIncomeReposito
     }
 
     @Override
+    @Modifying
+    @Transactional
     public int updateMonthlyIncome(MonthlyIncome monthlyIncome) {
 
         String query = "update monthlyIncome m set m.salary = :salary, m.ticket = :ticket where m.id = :id";
